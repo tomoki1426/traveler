@@ -1,5 +1,16 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<div class="text-center">
+  <h1>Top page</h1>
+</div>  
+<div class="center jumbotron">
+  <div class="text-center">
+  <div class="row">
+    <div class ="col-sm-8">
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+  </div>
+  </div>
+</div>
 <% else %>
 
 <div class="center jumbotron">

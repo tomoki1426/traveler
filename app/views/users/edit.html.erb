@@ -1,2 +1,41 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="text-center">
+  <h1>My page</h1>
+</div>
+ <%= form_with(model: @user, local: true) do |f| %>
+     <%= render 'layouts/error_messages', model: f.object %>
+<div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.label :image_name, 'プロフィール画像' %>
+          <%= f.file_field :image_name %>
+        </div>
+      </div>
+    <div class="col-sm-6">
+       <div class="form-group">
+        <%= f.label :name, 'Name' %>
+        <%= f.text_field :name, class: 'form-control' %>
+       </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      
+       <div class="form-group">
+        <%= f.label :content, 'profile' %>
+        <%= f.password_field :content, class: 'form-control' %>
+      </div>
+    </div>
+</div>
+      <%= f.submit '変更', class: 'btn btn-primary btn-block' %>
+    <% end %>

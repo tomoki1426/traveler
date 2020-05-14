@@ -5,6 +5,8 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
   validates :content,  length: { maximum: 100 }
-   mount_uploader :image_name, UserimageUploader
-    has_secure_password
+  mount_uploader :image_name, UserimageUploader
+  has_secure_password
+    
+  has_many :posts  
 end

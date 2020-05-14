@@ -1,0 +1,14 @@
+<div class="text-center">
+  <h1>Travel diary</h1>
+</div>  
+<div class="center jumbotron">
+    <div class="row">
+        <div class ="col-sm-5">
+            <%= image_tag @post.image_name.thumb400.url if @post.image_name? %>
+        </div>
+        <div class ="col-sm-6">
+            <h2><%= @post.title %></h2>
+            <%= @post.content%>
+        </div>
+    </div>    
+</div>
