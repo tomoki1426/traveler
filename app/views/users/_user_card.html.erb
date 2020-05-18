@@ -1,0 +1,18 @@
+<div class="profile-card">
+      <div class="profile-card__inner">
+         <div class="profile-thumb">   
+            <% if user.image_name? %>
+            <%= image_tag user.image_name.thumb.url %>
+            <% else %>
+            <%= image_tag 'default.png', :size => '100×100' %>
+            <% end %>
+          </div>
+          <div class="profile-content">
+           <span class="profile-name"><%= user.name %></span>
+          <span class="profile-intro"><%= user.content %></span>
+         </div>
+         <div class ="follow_button">
+          <%= render 'relationships/follow_button', user: user %>
+         </div>
+      </div>   
+    </div>

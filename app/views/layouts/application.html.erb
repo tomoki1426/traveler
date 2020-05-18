@@ -19,11 +19,13 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-
+    <div class="back">
     <div class="container">
+      
       <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
+    </div>
     </div>
   </body>
 </html>

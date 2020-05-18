@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  background-image: url("140726157637_TP_V.png");
+  background-size: cover;
+}
