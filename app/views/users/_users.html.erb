@@ -13,7 +13,9 @@
           </div>  
         <div class="media-body ml-4 ">
            <p class="font-weight-bold"><%= link_to user.name, user_path(user) %></p>
+           <div class="profile-intro">
             <p><%= user.content %></p>
+           </div>
         </div>
         <div class="text-right"> 
          <%= render 'relationships/follow_button', user: user %>

@@ -43,6 +43,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = 'アカウントを削除しました。'
+    redirect_to root_url
   end
   
   def followings
@@ -56,8 +60,12 @@ class UsersController < ApplicationController
     @followers = @user.followers.page(params[:page])
     counts(@user)
   end
-#ユーザーに変えるかな  
   
+  def likes
+    @user = User.find(params[:id])
+    @likes = @user.likes.page(params[:page])
+    counts(@user)
+  end
  private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

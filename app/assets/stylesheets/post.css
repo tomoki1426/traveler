@@ -1,0 +1,15 @@
+
+
+#postcard{
+    width:300px;
+    height:340px;
+}
+
+.postimage img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height:224px;
+    min-width:298px;
+}
+

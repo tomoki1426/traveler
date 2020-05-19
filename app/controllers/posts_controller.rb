@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+     before_action :require_user_logged_in
+     before_action :correct_user, only: [:destroy]
+  
   def new
     @post = current_user.posts.build
   end
@@ -13,16 +16,16 @@ class PostsController < ApplicationController
       flash[:success] = 'メッセージを投稿しました。'
       redirect_to root_url
      else
-      @posts = current_user.posts.order(id: :desc).page(params[:page])
+      @posts = current_user.feed_posts.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
       render 'toppages/index'
      end
   end
 
-  def destoy
+  def destroy
     @post.destroy
     flash[:success] = 'メッセージを削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to root_url
   end
   
    private

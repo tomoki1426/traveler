@@ -1,7 +1,7 @@
-<div class ="overflow">
- <div class="card-deck text-center">
+<div class ="overflow text-center">
+ <div class="card-deck">
   <% posts.each do |post| %>
-  <div class ="col-sm-4">
+  <div class ="col-sm-6">
     <div class="card card-body m-2 p-0", id="postcard">
       <div class="media m-1">
          <div class ="userprofile">
@@ -20,11 +20,8 @@
       <div class="postimage">
           <%= image_tag post.image_name.url if post.image_name? %>
       </div>
-       <div class=" mt-2 text-center font-weight-bold">
+       <div class="font-weight-bold mt-2 text-center">
             <%= link_to post.title, post_path(post),:style=>"color:black;" %>
-          <span class="float-right mb-1 mr-1">
-           <%= render 'favorites/favorite_button', post: post %>
-           </span>
        </div>
     </div>  
   </div>

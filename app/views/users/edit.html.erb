@@ -37,5 +37,6 @@
       </div>
     </div>
 </div>
-      <%= f.submit '変更', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '変更', class: 'btn btn-primary btn-sm' %>
     <% end %>
+ <%= link_to "アカウントの削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>

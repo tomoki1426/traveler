@@ -1,7 +1,7 @@
 <div class="text-center">
     <h1>Travel diary</h1>
 </div>
-<div class="center jumbotron">
+<div class="center jumbotron bg-white">
     <%= form_with(model: @post, local: true) do |f| %>
      <%= render 'layouts/error_messages', model: f.object %>
 <div class="row">
@@ -22,7 +22,7 @@
          <%= f.text_area :content, class: 'form-control', rows: 5 %>
       </div>
     </div>
-    <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+    <%= f.submit 'Post', class: 'btn btn-primary btn-sm' %>
     <% end %>
 </div>
 </div>
