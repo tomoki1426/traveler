@@ -35,8 +35,13 @@
         <%= f.label :content, 'profile' %>
         <%= f.text_field :content, class: 'form-control' %>
       </div>
+      <div class="d-flex justify-content-between">
+      <%= link_to "アカウントの削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>
+      <span class="text-left">
+       <%= f.submit '変更', class: 'btn btn-primary btn-sm  pull-right' %>
+       <% end %>
+      </span>
+      </div>
     </div>
 </div>
-      <%= f.submit '変更', class: 'btn btn-primary btn-sm' %>
-    <% end %>
- <%= link_to "アカウントの削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>
+     

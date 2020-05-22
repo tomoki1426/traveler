@@ -2,7 +2,7 @@
  <div class="card-deck">
   <% posts.each do |post| %>
   <div class ="col-sm-6">
-    <div class="card card-body m-2 p-0", id="postcard">
+    <div class="card card-body mb-3 p-0 w-90 mx-auto", id="postcard">
       <div class="media m-1">
          <div class ="userprofile">
              <% if post.user.image_name? %>
@@ -22,6 +22,9 @@
       </div>
        <div class="font-weight-bold mt-2 text-center">
             <%= link_to post.title, post_path(post),:style=>"color:black;" %>
+            <span class="float-right mb-1 mr-1">
+           <%= render 'favorites/favorite_button', post: post %>
+           </span>
        </div>
     </div>  
   </div>

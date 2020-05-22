@@ -16,6 +16,11 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
          <% if logged_in? %>
+           <li class="nav-item mt-2">  <%= form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| %>
+                                <%= form.text_field :keyword, placeholder: "ユーザーを検索する", class: "search-input" %>
+                                <%= form.submit "検索", class: "search-btn" %>
+                                <% end %>
+         </li>
           <li class="nav-item"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>

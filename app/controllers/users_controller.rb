@@ -44,9 +44,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    if @user == current_user
     @user.destroy
     flash[:success] = 'アカウントを削除しました。'
     redirect_to root_url
+    else
+      render :edit
+    end 
   end
   
   def followings
@@ -66,6 +70,10 @@ class UsersController < ApplicationController
     @likes = @user.likes.page(params[:page])
     counts(@user)
   end
+  
+   def search
+    @user = User.search(params[:keyword]).page(params[:page]).per(25)
+   end
  private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -75,5 +83,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :content, :image_name)
     end
+    
+    
 
 end

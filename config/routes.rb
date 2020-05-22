@@ -12,11 +12,17 @@ Rails.application.routes.draw do
       get :followers
       get :likes
       get :liked
-    end
+     end
+      collection do
+      get :search
+      end
   end  
-  resources :posts, only: [:new, :create, :show, :destroy]
+  resources :posts, only: [:new, :create, :show, :destroy] do
+     resources :comments, only: [:create, :destroy]
+  end
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
+  
 end
 
 

@@ -7,14 +7,17 @@ class User < ApplicationRecord
   validates :content,  length: { maximum: 100 }
   mount_uploader :image_name, UserimageUploader
   has_secure_password
+  
+   has_many :comments
+
     
-  has_many :posts  
+  has_many :posts, dependent: :destroy
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverses_of_relationship, source: :user
   
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :likes, through: :favorites, source: :post
   has_many :reverses_of_favorite, class_name: 'Favorite', foreign_key: 'post_id'
   has_many :liked, through: :reverses_of_favorite, source: :user
@@ -49,6 +52,14 @@ class User < ApplicationRecord
 
   def feed_posts
     Post.where(user_id: self.following_ids + [self.id])
+  end
+  
+  def self.search(search)
+    if search
+      User.where('name LIKE(?)', "%#{search}%")
+    else
+      User.all
+    end
   end
 end
 

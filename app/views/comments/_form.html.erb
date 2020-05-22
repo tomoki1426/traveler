@@ -1,0 +1,10 @@
+   <%= form_with(model: [post, @comment], local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+ <div class="form-group">
+ <%= f.label :content, 'コメント' %>
+ <%= f.text_area :content, class: 'form-control' %> 
+ </div>
+ <%= f.hidden_field :user_id %>
+<%= f.hidden_field :photo_id %>
+<%= f.submit 'コメントする', class: 'btn btn-outline-primary btn-sm' %>
+<% end %>

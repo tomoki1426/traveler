@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.includes(:user).all
+    @comment  = @post.comments.build(user_id: current_user.id) if current_user
   end
 
   def create
@@ -23,6 +25,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     flash[:success] = 'メッセージを削除しました。'
     redirect_to root_url

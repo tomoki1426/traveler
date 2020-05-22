@@ -1,6 +1,6 @@
 .profile-card{
   width: 100%;
-  max-width:300px;
+  max-width:250px;
   position: relative;
   background: #fff; /*背景の色*/
   box-shadow: 0px 1px 3px rgba(0,0,0,.18);
@@ -58,6 +58,9 @@
 
 .profile-intro{
   font-size: 12px;
+  max-width:250px;
+  max-width:100%;
+  word-break: break-all
 }
 
 .follow_button{
@@ -102,14 +105,25 @@
     height:auto;
 }
 
-.nav-justified{
-   background: #ccffcc;
-}
-
 .navcolor{
   color:#000;
+  height:100%;
 }
 
 .nav-justified li {
     width:25%;
+    height:auto;
 }
+
+#usercard{
+    min-width:310px;
+}
+
+#usercardinner{
+    max-width:90%;
+}
+
+.nav-justified{
+     background: #ccffcc;
+}
+
