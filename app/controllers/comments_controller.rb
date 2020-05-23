@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def create
   @post = Post.find(params[:post_id])
+  @comments = @post.comments.includes(:user).all
   @comment = @post.comments.build(content_params)
   @comment.user_id = current_user.id
   if @comment.save
@@ -8,7 +9,7 @@ class CommentsController < ApplicationController
     redirect_back(fallback_location: root_url)
   else
     flash[:danger] = "コメントできません"
-    redirect_back(fallback_location: root_url)
+   render :"posts/show"
   end 
   end
   

@@ -20,7 +20,7 @@ class PostsController < ApplicationController
      else
       @posts = current_user.feed_posts.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'toppages/index'
+      render :new
      end
   end
 

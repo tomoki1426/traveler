@@ -2,8 +2,8 @@
 <% if users.any? %>
   <ul class="list-unstyled">
     <% users.each do |user| %>
-     <div class="card card-body  w-50 mx-auto mb-3", id="usercard">
-      <li class="media", id="usercardinner">
+     <div class="card card-body  w-50 mx-auto mb-3" id="usercard">
+      <li class="media" id="usercardinner">
          <div class ="userprofile ">
             <% if user.image_name? %>
             <%= image_tag user.image_name.thumb100.url %>
