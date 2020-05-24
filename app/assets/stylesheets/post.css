@@ -11,6 +11,7 @@
     height: auto;
     max-height:224px;
     min-width:298px;
+    object-fit:cover;
 }
 
 #post_show img {

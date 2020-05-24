@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
   @comment.user_id = current_user.id
   if @comment.save
     flash[:success] = "コメントしました"
-    redirect_back(fallback_location: root_url)
+    redirect_to post_url(@post)
   else
     flash[:danger] = "コメントできません"
-   render :"posts/show"
+    render template: "posts/show"
   end 
   end
   
