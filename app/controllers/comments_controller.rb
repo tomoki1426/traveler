@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     flash[:success] = "コメントしました"
     redirect_to post_url(@post)
   else
-    flash[:danger] = "コメントできません"
+    flash.now[:danger] = "コメントできません"
     render template: "posts/show"
   end 
   end

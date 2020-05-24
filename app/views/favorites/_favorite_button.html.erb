@@ -2,14 +2,14 @@
     <%= form_with(model: current_user.favorites.find_by(post_id: post.id), local: true, method: :delete) do |f| %>
       <%= hidden_field_tag :post_id, post.id %>
       <%=  button_tag type: 'submit', class: 'btn btn-default ' do %>
-        <i class="far fa-kiss-beam fa-2x"></i>
+      <i class="far fa-thumbs-up fa-2x" id="goodstamp"></i>
       <% end %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
       <%= hidden_field_tag :post_id, post.id %>
       <%=  button_tag type: 'submit', class: 'btn btn-default ' do %>
-      <i class="far fa-meh fa-2x"></i>
+     <i class="far fa-thumbs-up fa-2x"></i>
       <% end %>
     <% end %>
   <% end %>
