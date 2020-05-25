@@ -8,16 +8,16 @@ class User < ApplicationRecord
   mount_uploader :image_name, UserimageUploader
   has_secure_password
   
-   has_many :comments
+   has_many :comments, foreign_key: :user_id, dependent: :destroy
 
     
-  has_many :posts, dependent: :destroy
-  has_many :relationships
+  has_many :posts, foreign_key: :user_id, dependent: :destroy
+  has_many :relationships, foreign_key: :user_id, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverses_of_relationship, source: :user
   
-  has_many :favorites, dependent: :destroy
+  has_many :favorites, foreign_key: :user_id, dependent: :destroy
   has_many :likes, through: :favorites, source: :post
   has_many :reverses_of_favorite, class_name: 'Favorite', foreign_key: 'post_id'
   has_many :liked, through: :reverses_of_favorite, source: :user
