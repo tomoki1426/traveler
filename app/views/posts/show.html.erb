@@ -39,7 +39,7 @@
       </div>
       <div class="ml-5"><%= comment.content %></div>
       <% if comment.user == current_user %>
-        <p class ="text-danger"><%= link_to 'コメントの削除', post_comment_path(@post, comment), method: :delete,:style=>"color:red;" %></p>
+        <p class ="text-danger"><%= link_to 'コメントの削除', post_comment_path(@post, comment), data: { confirm: "本当に削除しますか?" },method: :delete,:style=>"color:red;" %></p>
       <% end %>
     </div>
   <% end %>
