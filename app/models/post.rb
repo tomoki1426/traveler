@@ -5,6 +5,7 @@ class Post < ApplicationRecord
    validates :image_name, presence: true
     mount_uploader :image_name, PostimageUploader
    has_many :comments, foreign_key: :post_id, dependent: :destroy
+   has_many :favorites, foreign_key: :post_id, dependent: :destroy
 end
 
 
