@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+   before_action :require_user_logged_in
   def create
   @post = Post.find(params[:post_id])
   @comments = @post.comments.includes(:user).all
@@ -8,7 +9,7 @@ class CommentsController < ApplicationController
     flash[:success] = "コメントしました"
     redirect_to post_url(@post)
   else
-    flash.now[:danger] = "コメントできません"
+    flash.now[:danger] = "コメントの投稿に失敗しました"
     render template: "posts/show"
   end 
   end
