@@ -32,16 +32,16 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      post: ポスト
     attributes:
       user:
         name: 名前
         email: メールアドレス
         image_name: プロフィール画像
         content: 自己紹介文
-    models:
-      post: ポスト
-    attributes:
-      post:
+        password: パスワード
+        password_confirmation: パスワードの確認用
+      post: 
         content: 投稿内容
         title: タイトル
         image_name: 画像
