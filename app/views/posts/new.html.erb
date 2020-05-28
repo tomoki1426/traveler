@@ -20,12 +20,11 @@
        <div class="form-group">
         <%= f.label :content, '日記' %>
          <%= f.text_area :content, class: 'form-control', rows: 5 %>
-      </div>
+       </div>
+       <div class="text-center">
+         <%= f.submit 'Post', class: 'btn btn-outline-primary btn-sm' %>
+       </div>
     </div>
   </div>
-  <div class="text-center">
-    <%= f.submit 'Post', class: 'btn btn-outline-primary btn-sm' %>
-  </div>
-    <% end %>
-
+  <% end %>
 </div>
